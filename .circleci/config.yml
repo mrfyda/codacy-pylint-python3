@@ -21,7 +21,7 @@ workflows:
           # codacy-plugins-test can be saved before and restored from cache
           cmd: |
             docker build -t $CIRCLE_PROJECT_REPONAME:latest .
-            docker run $CIRCLE_PROJECT_REPONAME:latest codacy_pylint_test.py
+            docker run $CIRCLE_PROJECT_REPONAME:latest test_codacy_pylint.py
             git clone --depth 1 git://github.com/codacy/codacy-plugins-test.git codacy-plugins-test
             (cd codacy-plugins-test &&
               sbt -Dcodacy.tests.ignore.descriptions=true "runMain codacy.plugins.DockerTest json $CIRCLE_PROJECT_REPONAME:latest"

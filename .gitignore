@@ -9,3 +9,5 @@ target
 .bloop
 .vscode
 __pycache__
+*.log
+.coverage
